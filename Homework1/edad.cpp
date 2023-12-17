@@ -3,35 +3,42 @@
 #include <iostream>
 #include <ctime>
 
+using namespace std;
+
 int main() {
-    // Obtener la fecha de nacimiento del usuario
-    std::cout << "Ingrese la fecha de nacimiento en el formato DD MM AAAA: ";
-    int dia, mes, anio;
-    std::cin >> dia >> mes >> anio;
+    
+    time_t t = time(0);
+    tm* now = localtime(&t);
 
-    // Obtener la fecha actual
-    std::time_t tiempoActual = std::time(nullptr);
-    tm* tiempoStruct = std::localtime(&tiempoActual);
+    
+    int year, month, day;//se me hace raro poner "ano" jajajajajja asi que en ingles
+    cout << "Ingresa tu fecha de nacimiento (year month day): ";
+    cin >> year >> month >> day;
 
-    // Configurar la fecha de nacimiento en la estructura de tiempo
-    tiempoStruct->tm_year = anio - 1900;
-    tiempoStruct->tm_mon = mes - 1;
-    tiempoStruct->tm_mday = dia;
+    
+    int actualYear = now->tm_year + 1900;
+    int actualMonth = now->tm_mon + 1;
+    int actualDay = now->tm_mday;
 
-    // Convertir las fechas a segundos desde la época
-    std::time_t tiempoNacimiento = std::mktime(tiempoStruct);
+    int edadyear = actualYear - year;
+    int edadMonth = actualMonth - month;
+    int edadDay = actualDay - day;
 
-    // Calcular la diferencia en segundos entre la fecha actual y la fecha de nacimiento
-    std::time_t diferenciaSegundos = tiempoActual - tiempoNacimiento;
+    if (edadMonth < 0) {
+        edadyear--;
+        edadMonth += 12;
+    }
 
-    // Calcular años, meses y días a partir de la diferencia en segundos
-    int anios = diferenciaSegundos / (60 * 60 * 24 * 365);
-    int meses = (diferenciaSegundos % (60 * 60 * 24 * 365)) / (60 * 60 * 24 * 30);
-    int dias = (diferenciaSegundos % (60 * 60 * 24 * 30)) / (60 * 60 * 24);
-
-    // Mostrar resultados
-    std::cout << "Edad: " << anios << " años, " << meses << " meses, " << dias << " días." << std::endl;
-
+    if (edadDay < 0) {
+        if (actualMonth == 1 || actualMonth == 3 || actualMonth == 5 || actualMonth == 7 ||
+            actualMonth == 8 || actualMonth == 10 || actualMonth == 12) {
+            edadDay += 31;
+        } else if (actualMonth == 4 || actualMonth == 6 || actualMonth == 9 || actualMonth == 11) {
+            edadDay += 30;
+        } 
+        edadMonth--;
+    }
+    cout << "Tienes " << edadyear << " anios , "/*jajajajjajaj*/ << edadMonth << " meses y " << edadDay << " dias." << endl;
     system("pause");
     return 0;
 }
