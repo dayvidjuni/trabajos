@@ -33,9 +33,13 @@ int main() {
         if (actualMonth == 1 || actualMonth == 3 || actualMonth == 5 || actualMonth == 7 ||
             actualMonth == 8 || actualMonth == 10 || actualMonth == 12) {
             edadDay += 31;
-        } else if (actualMonth == 4 || actualMonth == 6 || actualMonth == 9 || actualMonth == 11) {
+        } 
+        else if (actualMonth == 4 || actualMonth == 6 || actualMonth == 9 || actualMonth == 11) {
             edadDay += 30;
         } 
+        else if(actualMonth==2){
+            edadDay +=28;
+        }
         edadMonth--;
     }
     cout << "Tienes " << edadyear << " anios , "/*jajajajjajaj*/ << edadMonth << " meses y " << edadDay << " dias." << endl;
