@@ -1,3 +1,8 @@
+/*
+   APELLIDOS Y NOMBRES : SUAQUITA CCANCCAPA DAYVID JUNIOR                    UNIDAD II
+   SEMESTRE: I                                
+*/
+
 #include <iostream>
 #include <math.h>
 #include <string.h>
