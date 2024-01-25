@@ -1,3 +1,8 @@
+/*-------------------------------------------------------------------
+    APELLIDO Y NOMBRE: DAYVID JUNIOR SUAQUITA CCANCCAPA
+    Semestre: I                    Unidad: II
+---------------------------------------------------------------------
+*/
 #include <iostream>
 #include <sstream>
 
@@ -19,6 +24,6 @@ int main() {
 
         std::cout << std::endl;
     }
-
+    system("pause");
     return 0;
 }

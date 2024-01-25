@@ -1,3 +1,8 @@
+/*-------------------------------------------------------------------
+    APELLIDO Y NOMBRE: DAYVID JUNIOR SUAQUITA CCANCCAPA
+    Semestre: I                    Unidad: II
+---------------------------------------------------------------------
+*/
 #include <iostream>
 int main(){
     float n1,n2,sum,res,mul,div;
