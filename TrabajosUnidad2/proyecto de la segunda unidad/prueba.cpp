@@ -1,3 +1,4 @@
+/*como se nota que hicimos esto entre 2, parece un frankenstein medio raro XD, pero bueno*/
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -254,12 +255,32 @@ int main() {
     imprimirLista(numerosAleatorios);
     std::cout << "\nLa cantidad de ciclos fue: " << operaciones << std::endl;
 
-    /*ahora por metodo merge sort*/
+    /*ahora por metodo merge sort siento como si no hubiera parpadeado en meses XD*/
     std::pair<std::vector<int>, int> resMergeSort = mergeSortWrapper(numerosAleatorios);
     std::cout<<"\nORDENAMIENTO POR MERGE SORT: "<<std::endl;
     imprimirLista(resMergeSort.first);
     std::cout<< "\nLa cantidad de intercambios fue : " << resMergeSort.second << std::endl;
     
+     std::string metodoMasEficiente;
+    int ciclosMasEficientes = std::min({resbubbleSort.second, resInsertionSort.second, resSelectionSort.second,
+                                        resCountingSort.second, operaciones, resMergeSort.second});
+
+    if (ciclosMasEficientes == resbubbleSort.second) {
+        metodoMasEficiente = "Bubble Sort";
+    } else if (ciclosMasEficientes == resInsertionSort.second) {
+        metodoMasEficiente = "Insertion Sort";
+    } else if (ciclosMasEficientes == resSelectionSort.second) {
+        metodoMasEficiente = "Selection Sort";
+    } else if (ciclosMasEficientes == resCountingSort.second) {
+        metodoMasEficiente = "Counting Sort";
+    } else if (ciclosMasEficientes == operaciones) {
+        metodoMasEficiente = "Quick Sort";
+    } else {
+        metodoMasEficiente = "Merge Sort";
+    }
+
+    std::cout << "\nEl metodo mas eficiente es: " << metodoMasEficiente << " con " << ciclosMasEficientes << " ciclos." << std::endl;
+
     system("pause");
     return 0;
 }
