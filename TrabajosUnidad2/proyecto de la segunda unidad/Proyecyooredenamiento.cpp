@@ -1,4 +1,4 @@
-/*como se nota que hicimos esto entre 2, parece un frankenstein medio raro XD, pero bueno*/
+/*como se nota que hicimos esto entre 3, parece un frankenstein medio raro XD, pero bueno*/
 #include <iostream>
 #include <vector>
 #include <algorithm>
